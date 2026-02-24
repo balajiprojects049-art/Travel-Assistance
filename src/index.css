@@ -1,39 +1,89 @@
-/* ==============================================
-   GLOBAL CSS — SafeJourney Luxury Travel Theme
-   ============================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+/* =============================================================
+   GLOBAL CSS — VoyageElite · Premium Navy & Royal Red Theme
+   ============================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Core Palette */
-  --bg-dark:      #0a0a0f;
-  --bg-card:      #12121a;
-  --bg-glass:     rgba(255,255,255,0.04);
-  --border-glass: rgba(255,255,255,0.08);
+  /* ── Core Backgrounds (Deep Navy) ── */
+  --bg-darkest: #020610;
+  --bg-dark: #040a18;
+  --bg-mid: #071022;
+  --bg-card: #0a1630;
+  --bg-glass: rgba(10, 30, 70, 0.45);
+  --bg-glass-md: rgba(10, 30, 70, 0.65);
+  --border-glass: rgba(255, 255, 255, 0.09);
+  --border-blue: rgba(30, 100, 200, 0.3);
+  --border-red: rgba(200, 20, 40, 0.3);
 
-  /* Gold Accent */
-  --gold:         #c9a84c;
-  --gold-light:   #e8c97e;
-  --gold-dim:     rgba(201,168,76,0.15);
+  /* ── Primary Blue Palette ── */
+  --blue: #1a56b0;
+  --blue-bright: #2268d0;
+  --blue-light: #4a8de8;
+  --blue-pale: #a8c8f5;
+  --blue-dim: rgba(26, 86, 176, 0.18);
+  --blue-glow: rgba(26, 86, 176, 0.4);
+  --navy: #0a1e48;
+  --navy-deep: #060e28;
 
-  /* Text */
-  --text-primary:   #f0ebe0;
-  --text-secondary: #9d9080;
-  --text-muted:     #5a5248;
+  /* ── Royal Red Palette ── */
+  --red: #c8102e;
+  --red-bright: #e01535;
+  --red-light: #ff3355;
+  --red-dim: rgba(200, 16, 46, 0.18);
+  --red-glow: rgba(200, 16, 46, 0.38);
+  --crimson: #8b0020;
 
-  /* Gradients */
-  --gradient-gold:  linear-gradient(135deg, #c9a84c 0%, #e8c97e 50%, #c9a84c 100%);
-  --gradient-dark:  linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
-  --gradient-hero:  linear-gradient(180deg, rgba(10,10,15,0.3) 0%, rgba(10,10,15,0.85) 100%);
+  /* ── Text Hierarchy ── */
+  --text-primary: #f0f4ff;
+  --text-secondary: #8faac8;
+  --text-muted: #3a5070;
+  --text-whisper: #1a2a40;
 
+  /* ── Gradients ── */
+  --gradient-blue: linear-gradient(135deg, #0d2d6e 0%, #1a56b0 50%, #0d2d6e 100%);
+  --gradient-blue-h: linear-gradient(90deg, #0d2d6e 0%, #2268d0 50%, #0d2d6e 100%);
+  --gradient-red: linear-gradient(135deg, #8b0020 0%, #c8102e 50%, #8b0020 100%);
+  --gradient-red-h: linear-gradient(90deg, #8b0020 0%, #e01535 50%, #8b0020 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(2, 6, 16, 0.15) 0%, rgba(4, 10, 24, 0.70) 60%, rgba(4, 10, 24, 0.97) 100%);
+  --gradient-dark: linear-gradient(180deg, #040a18 0%, #020610 100%);
+  --gradient-card: linear-gradient(145deg, rgba(26, 86, 176, 0.08) 0%, rgba(4, 10, 24, 0.95) 100%);
+  --gradient-cta: linear-gradient(135deg, #0a1e48 0%, #071022 50%, #0a0a20 100%);
+
+  /* ── Accent Combined ── */
+  --gradient-accent: linear-gradient(135deg, #1a56b0 0%, #8b0020 100%);
+  --gradient-accent-h: linear-gradient(90deg, #1a56b0 0%, #c8102e 100%);
+
+  /* ── Shadows ── */
+  --shadow-blue: 0 0 60px rgba(26, 86, 176, 0.18), 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-red: 0 0 60px rgba(200, 16, 46, 0.18), 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.7);
+
+  /* ── Typography ── */
   --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-royal: 'Cinzel', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* ── Section Spacing ── */
+  --section-pad: 120px;
+  --section-pad-sm: 70px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ═══════════════════════════════╗
+   BASE RESET & BODY              ║
+   ═══════════════════════════════╝*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -41,149 +91,442 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.7;
   min-height: 100dvh;
   overflow-x: hidden;
 }
 
-/* ---- Scrollbar ---- */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-dark); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-
-/* ---- Selection ---- */
-::selection { background: var(--gold-dim); color: var(--gold-light); }
-
-/* ---- Typography Helpers ---- */
-.font-display { font-family: var(--font-display); }
-.text-gold     { color: var(--gold); }
-.text-gold-light { color: var(--gold-light); }
-.text-secondary  { color: var(--text-secondary); }
-.text-muted      { color: var(--text-muted); }
-
-/* ---- Section Spacing ---- */
-.section { padding: 100px 0; }
-.section-sm { padding: 60px 0; }
-
-/* ---- Container ---- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* ── Luxury Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-/* ---- Glass Card ---- */
+::-webkit-scrollbar-track {
+  background: var(--bg-darkest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c8102e, #1a56b0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-light);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(26, 86, 176, 0.28);
+  color: var(--blue-pale);
+}
+
+/* ═══════════════════════════════╗
+   TOP ROYAL BAR (Red)            ║
+   ═══════════════════════════════╝*/
+.royal-top-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy-deep) 0%, var(--red) 30%, var(--red-bright) 50%, var(--red) 70%, var(--navy-deep) 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+/* ═══════════════════════════════╗
+   LAYOUT UTILITIES               ║
+   ═══════════════════════════════╝*/
+.section {
+  padding: var(--section-pad) 0;
+}
+
+.section-sm {
+  padding: var(--section-pad-sm) 0;
+}
+
+.section-xs {
+  padding: 48px 0;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.container-narrow {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ═══════════════════════════════╗
+   GLASS CARD                     ║
+   ═══════════════════════════════╝*/
 .glass-card {
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
   border-radius: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.glass-card:hover {
-  border-color: rgba(201,168,76,0.3);
-  box-shadow: 0 0 40px rgba(201,168,76,0.08);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  box-shadow: var(--shadow-card);
 }
 
-/* ---- Gold Divider ---- */
+.glass-card:hover {
+  border-color: var(--border-blue);
+  box-shadow: var(--shadow-blue);
+}
+
+/* ═══════════════════════════════╗
+   DIVIDERS                       ║
+   ═══════════════════════════════╝*/
 .gold-divider {
-  width: 60px;
-  height: 2px;
-  background: var(--gradient-gold);
+  width: 70px;
+  height: 3px;
+  background: var(--gradient-red-h);
   border-radius: 2px;
 }
 
-/* ---- Button Base ---- */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin: 0 auto 32px;
+  width: fit-content;
+}
+
+.ornament-divider span {
+  font-family: var(--font-royal);
+  font-size: 9px;
+  color: var(--red);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+}
+
+.ornament-divider::before {
+  background: linear-gradient(90deg, transparent, var(--red));
+}
+
+.ornament-divider::after {
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+
+/* ═══════════════════════════════╗
+   BUTTONS                        ║
+   ═══════════════════════════════╝*/
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 50px;
+  gap: 10px;
+  padding: 15px 36px;
+  border-radius: 3px;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
   border: none;
   outline: none;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   overflow: hidden;
 }
+
+/* Red Primary Button (CTA) */
 .btn-gold {
-  background: var(--gradient-gold);
-  color: #0a0a0f;
-}
-.btn-gold:hover {
-  box-shadow: 0 0 30px rgba(201,168,76,0.45);
-  transform: translateY(-2px);
-}
-.btn-outline {
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-}
-.btn-outline:hover {
-  background: var(--gold-dim);
-  box-shadow: 0 0 24px rgba(201,168,76,0.2);
-  transform: translateY(-2px);
+  background: var(--gradient-red);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(200, 16, 46, 0.35);
 }
 
-/* ---- Gradient Text ---- */
+.btn-gold:hover {
+  box-shadow: 0 8px 40px rgba(200, 16, 46, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Blue Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--blue-light);
+  border: 1px solid rgba(74, 141, 232, 0.5);
+}
+
+.btn-outline:hover {
+  background: var(--blue-dim);
+  border-color: var(--blue-light);
+  box-shadow: 0 0 30px rgba(26, 86, 176, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Blue Hero Button */
+.btn-blue {
+  background: var(--gradient-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(26, 86, 176, 0.35);
+}
+
+.btn-blue:hover {
+  box-shadow: 0 8px 40px rgba(26, 86, 176, 0.55);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════╗
+   GRADIENT TEXT                  ║
+   ═══════════════════════════════╝*/
 .gradient-text {
-  background: var(--gradient-gold);
+  background: var(--gradient-red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ---- Page Wrapper ---- */
-.page-container {
-  min-height: 100vh;
-  padding-top: 80px; /* navbar height */
+.gradient-text-blue {
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-pale) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* ---- Loader ---- */
+.shimmer-text {
+  background: linear-gradient(90deg,
+      var(--red) 0%,
+      var(--red-light) 30%,
+      var(--red) 60%,
+      #ff6680 80%,
+      var(--red) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ═══════════════════════════════╗
+   TYPOGRAPHY CLASSES             ║
+   ═══════════════════════════════╝*/
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-royal {
+  font-family: var(--font-royal);
+}
+
+/* ═══════════════════════════════╗
+   SECTION EYEBROW LABEL          ║
+   ═══════════════════════════════╝*/
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-royal);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 6px 18px;
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  background: rgba(200, 16, 46, 0.06);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════╗
+   STAT NUMBERS                   ║
+   ═══════════════════════════════╝*/
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-pale) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: var(--font-royal);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════╗
+   ICON BOX                       ║
+   ═══════════════════════════════╝*/
+.icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  background: rgba(26, 86, 176, 0.1);
+  border: 1px solid rgba(26, 86, 176, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box-red {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  background: rgba(200, 16, 46, 0.1);
+  border: 1px solid rgba(200, 16, 46, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════╗
+   PAGE WRAPPER                   ║
+   ═══════════════════════════════╝*/
+.page-container {
+  min-height: 100vh;
+  padding-top: 82px;
+}
+
+/* ═══════════════════════════════╗
+   LOADER                         ║
+   ═══════════════════════════════╝*/
 .loader-overlay {
-  position: fixed; inset: 0;
-  background: var(--bg-dark);
+  position: fixed;
+  inset: 0;
+  background: var(--bg-darkest);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
+
 .loader-ring {
-  width: 72px; height: 72px;
+  width: 64px;
+  height: 64px;
   border: 2px solid transparent;
-  border-top-color: var(--gold);
+  border-top-color: var(--red);
+  border-right-color: var(--blue-light);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
 
-/* ---- Animations ---- */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-12px); }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+/* ═══════════════════════════════╗
+   ANIMATIONS                     ║
+   ═══════════════════════════════╝*/
 @keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
-}
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-  50%       { box-shadow: 0 0 0 12px rgba(201,168,76,0); }
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
-/* ---- Responsive ---- */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulse-red {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(200, 16, 46, 0);
+  }
+}
+
+@keyframes pulse-blue {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 86, 176, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(26, 86, 176, 0);
+  }
+}
+
+/* ═══════════════════════════════╗
+   GOLD LINE HELPERS              ║
+   (repurposed as accent lines)   ║
+   ═══════════════════════════════╝*/
+.gold-line-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 16, 46, 0.5), rgba(26, 86, 176, 0.5), transparent);
+}
+
+/* ═══════════════════════════════╗
+   RESPONSIVE                     ║
+   ═══════════════════════════════╝*/
+@media (max-width: 1024px) {
+  :root {
+    --section-pad: 90px;
+    --section-pad-sm: 55px;
+  }
+}
+
 @media (max-width: 768px) {
-  .section { padding: 60px 0; }
-  .section-sm { padding: 40px 0; }
-  .container { padding: 0 16px; }
+  :root {
+    --section-pad: 65px;
+    --section-pad-sm: 40px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .container-narrow {
+    padding: 0 20px;
+  }
+
+  .btn {
+    padding: 14px 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 50px;
+    --section-pad-sm: 30px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.56rem;
+    padding: 5px 12px;
+  }
 }

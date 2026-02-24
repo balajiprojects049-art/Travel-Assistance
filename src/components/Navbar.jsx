@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
     { path: '/', label: 'Home' },
@@ -19,95 +19,136 @@ export default function Navbar() {
     const location = useLocation();
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 60);
+        const onScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    // Close mobile menu on route change
     useEffect(() => { setOpen(false); }, [location.pathname]);
 
     return (
         <>
+            {/* Royal top red bar */}
+            <div className="royal-top-bar" />
+
             <motion.nav
                 initial={{ y: -80 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 style={{
-                    position: 'fixed', top: 0, left: 0, right: 0,
+                    position: 'fixed', top: 3, left: 0, right: 0,
                     zIndex: 1000,
-                    padding: scrolled ? '12px 0' : '20px 0',
+                    padding: scrolled ? '10px 0' : '16px 0',
                     background: scrolled
-                        ? 'rgba(10,10,15,0.92)'
-                        : 'rgba(10,10,15,0.2)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                    borderBottom: scrolled ? '1px solid rgba(201,168,76,0.12)' : '1px solid transparent',
-                    transition: 'all 0.35s ease',
+                        ? 'rgba(4,10,24,0.97)'
+                        : 'rgba(4,10,24,0.35)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    borderBottom: scrolled
+                        ? '1px solid rgba(200,16,46,0.2)'
+                        : '1px solid rgba(255,255,255,0.06)',
+                    transition: 'all 0.4s ease',
+                    boxShadow: scrolled ? '0 8px 40px rgba(0,0,0,0.5)' : 'none',
                 }}
             >
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
                     {/* Logo */}
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+                        {/* Emblem */}
                         <div style={{
-                            width: 36, height: 36,
-                            borderRadius: '50%',
-                            background: 'linear-gradient(135deg,#c9a84c,#e8c97e)',
+                            width: 42, height: 42,
+                            background: 'linear-gradient(135deg, #c8102e, #8b0020)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            borderRadius: '3px',
+                            boxShadow: '0 4px 16px rgba(200,16,46,0.4)',
+                            flexShrink: 0,
                         }}>
-                            <Globe size={18} color="#0a0a0f" strokeWidth={2.5} />
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                    fill="white" strokeWidth="1.5" />
+                            </svg>
                         </div>
                         <div>
-                            <span style={{
-                                fontFamily: 'var(--font-display)',
-                                fontSize: '1.25rem', fontWeight: 700,
-                                color: 'var(--gold-light)', letterSpacing: '0.04em',
-                            }}>SafeJourney</span>
                             <div style={{
-                                fontSize: '0.55rem', color: 'var(--text-secondary)',
-                                letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1,
-                            }}>Int'l Travel Companions</div>
+                                fontFamily: 'var(--font-royal)',
+                                fontSize: '1.15rem', fontWeight: 600,
+                                color: '#f0f4ff', letterSpacing: '0.06em',
+                                lineHeight: 1.1,
+                            }}>SafeJourney</div>
+                            <div style={{
+                                fontSize: '0.5rem', color: 'var(--text-secondary)',
+                                letterSpacing: '0.22em', textTransform: 'uppercase',
+                                lineHeight: 1, marginTop: '2px',
+                                fontFamily: 'var(--font-royal)',
+                            }}>International Companions</div>
                         </div>
                     </Link>
 
                     {/* Desktop Links */}
-                    <ul style={{ display: 'flex', gap: '8px', listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
+                    <ul style={{ display: 'flex', gap: '4px', listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
                         {navLinks.map(({ path, label }) => (
                             <li key={path}>
                                 <NavLink
                                     to={path}
                                     style={({ isActive }) => ({
                                         textDecoration: 'none',
-                                        padding: '8px 14px',
-                                        borderRadius: '50px',
-                                        fontSize: '0.8rem',
-                                        fontWeight: 500,
-                                        letterSpacing: '0.06em',
-                                        color: isActive ? 'var(--gold)' : 'var(--text-secondary)',
-                                        background: isActive ? 'rgba(201,168,76,0.08)' : 'transparent',
-                                        border: isActive ? '1px solid rgba(201,168,76,0.2)' : '1px solid transparent',
+                                        padding: '9px 15px',
+                                        borderRadius: '3px',
+                                        fontSize: '0.75rem',
+                                        fontWeight: 400,
+                                        letterSpacing: '0.07em',
+                                        textTransform: 'uppercase',
+                                        color: isActive ? '#ffffff' : 'var(--text-secondary)',
+                                        background: isActive ? 'rgba(200,16,46,0.15)' : 'transparent',
+                                        borderBottom: isActive ? '2px solid var(--red)' : '2px solid transparent',
                                         transition: 'all 0.25s ease',
+                                        fontFamily: 'var(--font-body)',
                                     })}
+                                    onMouseEnter={e => {
+                                        if (!e.currentTarget.classList.contains('active')) {
+                                            e.currentTarget.style.color = '#ffffff';
+                                            e.currentTarget.style.borderBottomColor = 'rgba(200,16,46,0.5)';
+                                        }
+                                    }}
+                                    onMouseLeave={e => {
+                                        if (!e.currentTarget.getAttribute('aria-current')) {
+                                            e.currentTarget.style.color = 'var(--text-secondary)';
+                                            e.currentTarget.style.borderBottomColor = 'transparent';
+                                        }
+                                    }}
                                 >{label}</NavLink>
                             </li>
                         ))}
                     </ul>
 
-                    {/* Book Now CTA */}
-                    <Link to="/booking" className="btn btn-gold desktop-cta" style={{ padding: '10px 24px', fontSize: '0.75rem' }}>
-                        Book Now
-                    </Link>
+                    {/* CTA + Phone */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }} className="desktop-cta">
+                        <a href="tel:+18008888888" style={{
+                            display: 'flex', alignItems: 'center', gap: '7px',
+                            color: 'var(--blue-pale)', fontSize: '0.72rem',
+                            textDecoration: 'none', letterSpacing: '0.05em',
+                            fontFamily: 'var(--font-royal)',
+                        }}>
+                            <Phone size={13} color="var(--red)" />
+                            +1 800 888 8888
+                        </a>
+                        <Link to="/booking" className="btn btn-gold" style={{ padding: '10px 22px', fontSize: '0.7rem' }}>
+                            Book Now
+                        </Link>
+                    </div>
 
                     {/* Mobile Hamburger */}
                     <button
                         onClick={() => setOpen(v => !v)}
                         className="mobile-menu-btn"
                         style={{
-                            background: 'transparent', border: 'none', cursor: 'pointer',
-                            color: 'var(--gold)', display: 'none', padding: '4px',
+                            background: 'transparent', border: '1px solid rgba(200,16,46,0.3)',
+                            cursor: 'pointer', color: 'var(--red)', display: 'none',
+                            padding: '8px', borderRadius: '3px',
                         }}
                     >
-                        {open ? <X size={22} /> : <Menu size={22} />}
+                        {open ? <X size={20} /> : <Menu size={20} />}
                     </button>
                 </div>
             </motion.nav>
@@ -119,25 +160,35 @@ export default function Navbar() {
                         initial={{ x: '100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
-                        transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+                        transition={{ type: 'spring', stiffness: 280, damping: 28 }}
                         style={{
-                            position: 'fixed', top: 0, right: 0, bottom: 0, width: '75%', maxWidth: 320,
-                            background: 'rgba(12,12,18,0.97)',
+                            position: 'fixed', top: 0, right: 0, bottom: 0, width: '80%', maxWidth: 340,
+                            background: 'rgba(4,10,24,0.98)',
                             backdropFilter: 'blur(30px)',
-                            borderLeft: '1px solid rgba(201,168,76,0.12)',
+                            borderLeft: '1px solid rgba(200,16,46,0.2)',
                             zIndex: 1100,
                             display: 'flex', flexDirection: 'column',
-                            padding: '80px 32px 40px',
-                            gap: '6px',
+                            padding: '90px 36px 48px',
+                            gap: '4px',
                         }}
                     >
+                        {/* Decorative top line */}
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gradient-red-h)' }} />
+
                         <button
                             onClick={() => setOpen(false)}
                             style={{
-                                position: 'absolute', top: 20, right: 20,
-                                background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--gold)',
+                                position: 'absolute', top: 24, right: 24,
+                                background: 'rgba(200,16,46,0.1)', border: '1px solid rgba(200,16,46,0.3)',
+                                cursor: 'pointer', color: 'var(--red)', padding: '8px', borderRadius: '3px',
                             }}
-                        ><X size={22} /></button>
+                        ><X size={18} /></button>
+
+                        {/* Logo in drawer */}
+                        <div style={{ marginBottom: '32px', paddingBottom: '24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                            <div style={{ fontFamily: 'var(--font-royal)', fontSize: '1rem', color: 'white', letterSpacing: '0.06em' }}>SafeJourney</div>
+                            <div style={{ fontSize: '0.5rem', color: 'var(--text-secondary)', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '3px', fontFamily: 'var(--font-royal)' }}>International Companions</div>
+                        </div>
 
                         {navLinks.map(({ path, label }, i) => (
                             <motion.div
@@ -152,11 +203,15 @@ export default function Navbar() {
                                         display: 'block',
                                         textDecoration: 'none',
                                         padding: '14px 0',
-                                        fontSize: '1rem',
-                                        fontFamily: 'var(--font-display)',
+                                        fontSize: '0.85rem',
+                                        fontFamily: 'var(--font-royal)',
+                                        letterSpacing: '0.1em',
+                                        textTransform: 'uppercase',
                                         fontWeight: 500,
-                                        color: isActive ? 'var(--gold)' : 'var(--text-primary)',
+                                        color: isActive ? 'var(--red-light)' : 'var(--text-primary)',
                                         borderBottom: '1px solid rgba(255,255,255,0.05)',
+                                        borderLeft: isActive ? '3px solid var(--red)' : '3px solid transparent',
+                                        paddingLeft: '12px',
                                     })}
                                 >{label}</NavLink>
                             </motion.div>
@@ -165,9 +220,19 @@ export default function Navbar() {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            style={{ marginTop: 'auto' }}
+                            transition={{ delay: 0.45 }}
+                            style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}
                         >
+                            <a href="tel:+18008888888" style={{
+                                display: 'flex', alignItems: 'center', gap: '8px',
+                                color: 'var(--blue-pale)', fontSize: '0.78rem',
+                                textDecoration: 'none', letterSpacing: '0.05em',
+                                fontFamily: 'var(--font-royal)',
+                                padding: '10px 0',
+                            }}>
+                                <Phone size={14} color="var(--red)" />
+                                +1 800 888 8888
+                            </a>
                             <Link to="/booking" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
                                 Book Now
                             </Link>
@@ -184,16 +249,13 @@ export default function Navbar() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setOpen(false)}
-                        style={{
-                            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-                            zIndex: 1050,
-                        }}
+                        style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 1050 }}
                     />
                 )}
             </AnimatePresence>
 
             <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .desktop-nav, .desktop-cta { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
         }
